@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Reddit Parent Focus",
+  "version": "1.0.0",
+  "description": "Auto-hides child comments and replies on Reddit threads so you can focus exclusively on top-level parent comments.",
+  "author": "Nguyen Ha <newwenha@gmail.com>",
+  "homepage_url": "https://github.com/nguyen-ha-dev/reddit-parent-focus",
+  "icons": {
+    "16": "images/png/ropc-icon-16x16.png",
+    "32": "images/png/ropc-icon-32x32.png",
+    "48": "images/png/ropc-icon-48x48.png",
+    "96": "images/png/ropc-icon-96x96.png",
+    "128": "images/png/ropc-icon-128x128.png"
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "https://*.reddit.com/*"
+  ],
+  "action": {
+    "default_title": "Reddit Parent Focus",
+    "default_icon": {
+      "16": "images/png/ropc-icon-16x16.png",
+      "32": "images/png/ropc-icon-32x32.png",
+      "48": "images/png/ropc-icon-48x48.png",
+      "96": "images/png/ropc-icon-96x96.png",
+      "128": "images/png/ropc-icon-128x128.png"
+    },
+    "default_popup": "popup/popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.reddit.com/*"
+      ],
+      "css": [
+        "content/styles.css"
+      ],
+      "js": [
+        "content/content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}

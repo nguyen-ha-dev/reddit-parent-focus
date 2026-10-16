@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reddit Parent Focus</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="popup-wrapper">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <img src="../images/png/ropc-icon-48x48.png" alt="Logo" class="brand-icon" />
+        <div class="brand-text">
+          <span class="title">Reddit Parent Focus</span>
+          <span class="version">v1.0.0</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Controller Card -->
+    <main class="card">
+      <div class="status-indicator">
+        <span id="status-dot" class="dot active"></span>
+        <span id="status-badge" class="badge">ACTIVE</span>
+      </div>
+
+      <h2 id="status-title" class="status-title">Hiding Child Comments</h2>
+      <p id="status-desc" class="status-desc">
+        Focusing solely on direct responses to the original poster.
+      </p>
+
+      <!-- Toggle Switch -->
+      <label class="switch-container" for="toggle-switch">
+        <input type="checkbox" id="toggle-switch" checked />
+        <span class="slider">
+          <span class="slider-thumb">
+            <svg class="icon icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <svg class="icon icon-cross" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </span>
+        </span>
+      </label>
+    </main>
+
+    <!-- Thread Stats (Active on Reddit thread pages) -->
+    <div id="thread-stats" class="thread-stats hidden">
+      <div class="stat-item">
+        <span class="stat-label">Parent Comments</span>
+        <span id="stat-parents" class="stat-value">0</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-label">Child Replies</span>
+        <span id="stat-replies" class="stat-value">Suppressed</span>
+      </div>
+    </div>
+
+    <!-- Footer Attribution -->
+    <footer class="footer">
+      <div class="footer-tip">Right-click on Reddit to quickly toggle</div>
+      <div class="footer-author">
+        Made by <a href="mailto:newwenha@gmail.com" class="author-link" title="Contact Nguyen Ha">Nguyen Ha</a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

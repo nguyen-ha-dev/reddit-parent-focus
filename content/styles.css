@@ -1,0 +1,48 @@
+/**
+ * Reddit Only Parent Comments (ROPC)
+ * Injected Stylesheet for Filtering Comment Trees
+ *
+ * @author Nguyen Ha <newwenha@gmail.com>
+ * @license MIT
+ */
+
+/* ========================================================
+   MODERN REDDIT ("shreddit" web components)
+   ======================================================== */
+
+/* Hide any comment whose depth is greater than 0 */
+html.ropc-active shreddit-comment:not([depth="0"]),
+html.ropc-active shreddit-comment[depth]:not([depth="0"]) {
+  display: none !important;
+}
+
+/* Hide the child comment container slot inside parent comments */
+html.ropc-active shreddit-comment[depth="0"] > div[slot="children"],
+html.ropc-active shreddit-comment[depth="0"] div[slot="children"] {
+  display: none !important;
+}
+
+/* Clean up vertical threadline connectors */
+html.ropc-active shreddit-comment[depth="0"] > div.threadline,
+html.ropc-active shreddit-comment[depth="0"] [data-testid="thread-line"] {
+  border: none !important;
+}
+
+/* ========================================================
+   OLD REDDIT ("old.reddit.com")
+   ======================================================== */
+
+/* Hide nested child comment listings */
+html.ropc-active .comment .child {
+  display: none !important;
+}
+
+/* ========================================================
+   2018 REDESIGN REDDIT ("new.reddit.com")
+   ======================================================== */
+
+/* Hide indented reply containers */
+html.ropc-active div[data-testid="comment"] ~ div:has(div[data-testid="comment"]),
+html.ropc-active div[style*="padding-left"]:has(div[data-testid="comment"]) {
+  display: none !important;
+}
